@@ -1,0 +1,32 @@
+<!doctype html >
+<html ng-app>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TODO:Angular</title>
+    <script type="text/javascript" src="js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/todo.js"></script>
+    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/todo.css" />
+  </head>
+  <body>
+    <div ng-controller="toDoController">
+      <h1>Total todo: {{getTodoCount()}}</h1>
+      <div class="well">
+	      <ul class="unstyled">
+	        <li ng-repeat="todo in todos">
+	      	 <input type="checkbox" ng-model="todo.done" />
+	      	 <span class="done-{{todo.done}}">{{todo.title}}</span>
+	        </li>
+	      </ul>
+      </div>
+      <form class="form-horizontal">
+        <input type="text" ng-model="formTodoTextfield" />
+        <button ng-click="addTodo()"><i class="icon-plus"></i>Add</button>
+      </form>
+      <button class="btn btn-default" type="button" ng-click="removeCompleted()"><i class="icon-remove"></i>Clear</button>
+      <br />
+      <br />
+      <div class="well well-large">{{todos}}</div>
+    </div>
+  </body>
+</html>
